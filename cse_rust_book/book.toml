@@ -1,0 +1,6 @@
+[book]
+authors = ["Marcin Anforowicz"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CSE Rust Book"
