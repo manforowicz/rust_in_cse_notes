@@ -1,10 +1,12 @@
 # Channel
 
-As we've already learned, on way for threads to communicate with each other
+As we've already learned, eon way for threads to communicate with each other
 is by having access to shared data, using `Arc<Mutex<Data>>`.
 
 Another way is through channels. `mpsc` stands for "Multiple Producer Single Consumer",
 which means that there can be many `Sender`s but only one `Receiver`.
+
+Channels in Rust are similar to channels in other languages:
 
 ```rust
 use std::sync::mpsc;

@@ -1,7 +1,7 @@
 # Threads
 
-Rust lets you use normal OS threads, just like pthread in C.
-Here's a simple example:
+Rust lets you use normal OS threads, just like pthreads in C.
+Press play to run:
 
 ```rust
 use std::thread;

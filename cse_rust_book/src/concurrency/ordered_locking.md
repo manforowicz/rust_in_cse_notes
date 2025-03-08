@@ -1,9 +1,9 @@
 # Ordered Locking
 
 Does Rust prevent deadlocks?
-Let's see if this obviously deadlock-prone code compiles?
+Let's see if this obviously deadlock-prone code compiles:
 
-```rust
+```rust,no_run
 use std::thread;
 use std::sync::{Arc, Mutex};
 
@@ -106,12 +106,12 @@ mod ordered_locking {
 use ordered_locking::{LockProof, Mutex};
 
 fn main() {
-    let mut unlocked_ctx = LockProof::unlocked_state();
+    let mut unlocked_proof = LockProof::unlocked_state();
     let mutex1: Mutex<u32, 1> = Mutex::new(32);
     let mutex2: Mutex<u32, 2> = Mutex::new(32);
 
-    let (mut guard1, mut ctx1) = mutex1.lock(&mut unlocked_ctx);
-    let (mut guard2, ctx2) = mutex2.lock(&mut ctx1);
+    let (mut guard1, mut proof1) = mutex1.lock(&mut unlocked_proof);
+    let (mut guard2, proof2) = mutex2.lock(&mut proof1);
 
     *guard1 += 5;
     *guard2 += 5;

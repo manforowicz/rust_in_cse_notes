@@ -25,17 +25,31 @@ fn main() {
 }
 ```
 
-This doesn't compile because it violates the borrow checker's **lifetime rule**.
+This doesn't compile because it violates the borrow checker's **lifetime rule**:
 
-> A reference cannot outlive a value it borrows.
+> "A reference cannot outlive a value it borrows."
 
-That's because `data` is implicitly dropped at the end of `start_threads()`, but
-the `thread()` still have references it.
+That's because `data` is implicitly `drop()`ed at the end of `start_threads()`, but
+the `thread()`s still have references it.
 
 In C, this would be a "dangling pointer" or "use after free" bug.
 
-Is there a way to tell the compiler to only drop `data` once no one has a reference to it?
-Yes, `Arc` (atomic reference counter) does exactly this!
+## Arc
+
+We want `drop(data)` to only be called once no one has a reference to it.
+We can do this by wrapping `data` in an `Arc` (atomic reference counter).
+
+Each thread will own an `Arc` smart pointer, all pointing to the same `data`.
+
+When `Arc` is `clone()`ed, its reference count is incremented.
+When it's `drop()`ed, its reference count is decremented.
+
+Once its reference count reaches zero, `drop(data)` is called.
+
+Why `Arc` instead of `Rc`?
+`Rc` is not `Send`, so it can't be moved between threads.
+That's because the reference counter of `Rc` is non-atomic.
+
 We can rewrite our code like so:
 
 ```rust
