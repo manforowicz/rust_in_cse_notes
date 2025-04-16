@@ -15,3 +15,6 @@
     - [Course Order Brainstorm](./meetings/course_order_brainstorm.md)
     - [Meeting - 3 March 2025](./meetings/march_3.md)
     - [Meeting - 7 March 2025](./meetings/march_7.md)
+    - [Meeting - 14 March 2025](./meetings/march_14.md)
+    - [Meeting - 9 April 2025](./meetings/april_9.md)
+    - [Meeting - 16 April 2025](./meetings/april_16.md)
