@@ -1,4 +1,4 @@
-# Meeting - 9 April 2025
+# Meeting - 16 April 2025
 
 ## Server Locking Lab
 
@@ -31,3 +31,4 @@ I didn't have time to write more loom tests.
 - Keep working on this lab.
 - If I have time, try Matthew's lab and send a feedback message.
 - Send Yiqing a message with feedback about slides: https://docs.google.com/presentation/d/14myOhXS0392NV5tz7ZTAjgLYsCNwOfFQ9r81QP-l46E/edit#slide=id.p
+- Add more Cuckoo tests, and maybe run [flamegraph](https://nnethercote.github.io/perf-book/profiling.html) on it.
