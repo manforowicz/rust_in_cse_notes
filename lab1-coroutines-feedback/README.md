@@ -53,6 +53,14 @@ because CSE 351 students haven't seen assembly syntax that uses C variables and 
 I'd suggest adding a block comment with C-style pseudocode for what the assembly does.
 - Add a comment stating we get away saving only "imporant" registers, because those are the callee-saved registers from the perspective of `routineSwitch`.
 
+I get a warning on `make`:
+
+```txt
+gcc src/coroutine.c src/routineSwitch.S tests/my_test/*.c -o results/my_test.exec -g -O3 -Iinclude
+/usr/bin/ld: warning: /tmp/ccD1fYDk.o: missing .note.GNU-stack section implies executable stack
+/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+```
+
 ## `coroutine.c`
 
 - In the `Routine` struct, why is it `uint64_t` instead of the more idiomatic `void*`.
@@ -69,5 +77,5 @@ I'd just specify that the `saved_stack_pointer` is modified in `routineSwitch.S`
 - Add a make command to run all tests.
 - I noticed there are some TODOs to be addressed in the makefile.
 - I'd comment the makefile just to demonstrate best practices.
-- I'd add more warning flags to tests such as `-wall`.
+- I'd add more warning flags to tests such as `-Wall`.
 - Tests t01, t14, t15, t19, t20 are broken.
