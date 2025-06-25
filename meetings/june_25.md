@@ -24,4 +24,20 @@
     - Write readme for event-loop lab, polish, and add skeleton code.
     - Rewrite the async server lab to include key async use-cases like timeouts and [select](https://docs.rs/tokio/latest/tokio/macro.select.html).
     - Make slides for event loops and async.
-    - 
+    - Solve the rust-course-fei event-loop lab to get a better idea of how hard it is.
+
+
+## Event-loop-lab notes:
+
+- Write MIO-based event loop assignment in Rust to use state-machine-concepts like enums and matches.
+- Idea: Simulated "epoll" in Rust that doesn't use actual network requests, for ease of testing.
+- Have a struct with state per client.
+- Idea: Classic event loop is a GUI. Keyboard press, etc.
+- Idea: Maybe we should have them make a paint app (or a multi-player one)?
+- Add some state per user to the rust-course-fei chat server. Maybe timeouts are a good state?
+
+## Async-lab notes:
+- Emphasize cancellation in the async server lab.
+- Spawn a LOT of tasks. Maybe O(n^2) wrt the number of clients. Each client handler spawns a task for handling interaction with each of the other clients.
+
+- Meeting time next week TBD
