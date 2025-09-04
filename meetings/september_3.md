@@ -42,3 +42,26 @@ Improve the readme, add comments, and improve error messages.
 
 This lab should be ready to playtest by Friday morning.
 
+## Notes
+
+Could introduce the enum-dispatch crate.
+
+Could send message blocking to the memory.
+
+Cache communications are fast relative to memory communicatinos, so separating memory and directory is realistic of performance optimiaztions.
+
+Rename "directory" to "memory controller".
+
+Memory controller struct stores a "memory" struct inside of it. "Memory" struct is just a wrapper around a BTreeMap.
+
+TODO: Add some food for thought questions that students would have to answer. Students discover MESI/MOSI on their own.
+
+Add command to make an unresponsive cache.
+
+Or we could test for concurrency by seeing how many steps it takes for a response to arrive or sometihng.
+
+Or maybe create a model checker that somehow checks that progress continues when something is frozen.
+
+Add a mode to run things without model checking.
+
+I could make a Rust intro lab.
